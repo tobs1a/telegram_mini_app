@@ -1,0 +1,9 @@
+{% include 'back_button.html' %}
+<h1>Bilder-Upload</h1>
+<p>Lade deine Blütenbilder hoch.</p>
+
+<form method="POST" enctype="multipart/form-data">
+    <label>Bild auswählen:</label>
+    <input type="file" name="file" required><br><br>
+    <button type="submit">Hochladen</button>
+</form>

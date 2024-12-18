@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ variation.name }}</title>
+</head>
+<body>
+    <h1>{{ variation.name }}</h1>
+    <p>Durchschnittliche Bewertung: {{ average_stars|round(2) }} Sterne</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Sterne (1-5):</label>
+        <input type="number" name="stars" min="1" max="5" required><br>
+        <label>Kommentar:</label>
+        <input type="text" name="comment" required><br>
+        <label>Bild hochladen:</label>
+        <input type="file" name="image"><br>
+        <button type="submit">Bewerten</button>
+    </form>
+
+    <h2>Bewertungen:</h2>
+    {% for rating in ratings %}
+        <div>
+            <p>{{ rating.stars }} Sterne - {{ rating.comment }}</p>
+            {% if rating.image_filename %}
+                <img src="{{ url_for('static', filename='uploads/' + rating.image_filename) }}" width="200">
+            {% endif %}
+        </div>
+    {% else %}
+        <p>Noch keine Bewertungen vorhanden.</p>
+    {% endfor %}
+</body>
+</html>

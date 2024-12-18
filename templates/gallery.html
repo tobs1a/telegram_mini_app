@@ -1,0 +1,26 @@
+{% include 'back_button.html' %}
+<h1>Bilder-Galerie</h1>
+{% for image in images %}
+    <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+        <img src="{{ url_for('static', filename='uploads/' + image.filename) }}" width="200" alt="Hochgeladenes Bild">
+        <h3>Kommentare:</h3>
+        <ul>
+            {% for comment in image.comments %}
+                <li>
+                    <strong>{{ comment.username }}</strong> am {{ comment.created_at.strftime('%d.%m.%Y %H:%M') }}:  
+                    {{ comment.text }}
+                </li>
+            {% else %}
+                <li>Keine Kommentare vorhanden.</li>
+            {% endfor %}
+        </ul>
+        <form method="POST">
+            <input type="hidden" name="image_id" value="{{ image.id }}">
+            <input type="text" name="username" placeholder="Dein Name" required>
+            <textarea name="comment" placeholder="Kommentar hinzufügen" required></textarea><br>
+            <button type="submit">Kommentieren</button>
+        </form>
+    </div>
+{% else %}
+    <p>Noch keine Bilder hochgeladen.</p>
+{% endfor %}

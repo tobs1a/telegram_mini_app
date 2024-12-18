@@ -1,9 +1,21 @@
-{% include 'back_button.html' %}
-<h1>Willkommen zur Telegram Mini-App</h1>
-<p>Wähle eine Option aus dem Menü.</p>
-<ul>
-    <li><a href="/upload">Bilder-Upload & Bewertung</a></li>
-    <li><a href="/gallery">Galerie</a></li>
-    <li><a href="/calendar">Event-Kalender</a></li>
-    <li><a href="/seed-finder">Seed-Finder</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini-App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content">
+        <h1>Willkommen zur Telegram Mini-App</h1>
+        <p>Wähle eine Option aus dem Menü:</p>
+        <div class="buttons-container">
+            <a href="/upload" class="button">📤 Bilder-Upload</a>
+            <a href="/gallery" class="button">🖼️ Galerie</a>
+            <a href="/calendar" class="button">📅 Event-Kalender</a>
+            <a href="/seed-finder" class="button">🌱 Seed-Finder</a>
+        </div>
+    </div>
+</body>
+</html>

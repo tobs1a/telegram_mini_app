@@ -1,0 +1,13 @@
+{% include 'back_button.html' %}
+<h1>Event-Kalender</h1>
+<p>Hier kannst du Events für das Jahr 2025 hinzufügen und anzeigen.</p>
+
+<form method="POST">
+    <label>Titel des Events:</label>
+    <input type="text" name="title" required><br>
+    <label>Datum:</label>
+    <input type="date" name="date" required><br>
+    <label>Beschreibung:</label>
+    <textarea name="description"></textarea><br>
+    <button type="submit">Event hinzufügen</button>
+</form>

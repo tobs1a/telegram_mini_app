@@ -2,20 +2,16 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini-App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Medizinalblüten</title>
 </head>
 <body>
-    <div class="content">
-        <h1>Willkommen zur Telegram Mini-App</h1>
-        <p>Wähle eine Option aus dem Menü:</p>
-        <div class="buttons-container">
-            <a href="/upload" class="button">📤 Bilder-Upload</a>
-            <a href="/gallery" class="button">🖼️ Galerie</a>
-            <a href="/calendar" class="button">📅 Event-Kalender</a>
-            <a href="/seed-finder" class="button">🌱 Seed-Finder</a>
-        </div>
-    </div>
+    <h1>Medizinalblüten-Variationen</h1>
+    <ul>
+        {% for variation in variations %}
+            <li>
+                <a href="{{ url_for('variation', id=variation.id) }}">{{ variation.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
